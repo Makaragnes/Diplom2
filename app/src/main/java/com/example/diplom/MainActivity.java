@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,16 +38,47 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView1;
     private String mJSONURLString = "https://myrik8333.github.io/test.json";
 
+    public EditText editText1, editText2, editText3, editText4, editText5, editText6, editText7, editText8, editText9, editText10, editText11;
+    private Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        textView1 = findViewById(R.id.text);
-        Intent intent = new Intent(MainActivity.this, Samlpe.class);
-        startActivity(intent);
         //myTask.execute();
         mContext = getApplicationContext();
+
+        button = findViewById(R.id.button);
+
+        editText1 = findViewById(R.id.edittext1);
+        editText2 = findViewById(R.id.edittext2);
+        editText3 = findViewById(R.id.edittext3);
+        editText4 = findViewById(R.id.edittext4);
+        editText5 = findViewById(R.id.edittext5);
+        editText6 = findViewById(R.id.edittext6);
+        editText7 = findViewById(R.id.edittext7);
+        editText8 = findViewById(R.id.edittext8);
+        editText9 = findViewById(R.id.edittext9);
+        editText10 = findViewById(R.id.edittext10);
+        editText11 = findViewById(R.id.edittext11);
+
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                for( int i=0; i<11; i++){
+
+                }
+
+                Intent intent = new Intent(MainActivity.this, Samlpe.class);
+                intent.putExtra("one", editText1.getText().toString());
+                startActivity(intent);
+
+            }
+        });
 
     }
     class MyTask extends AsyncTask<Void, Void, Void> {
@@ -69,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(final JSONObject response) {
 
-                            Log.d(TAG, "sfdfsdf");
+                            //Log.d(TAG, "sfdfsdf");
                             try {
                                 final JSONObject object = new JSONObject(response.toString());
                                 JSONObject object1 = object.getJSONObject("response");
