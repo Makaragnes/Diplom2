@@ -36,7 +36,7 @@ public class ActivityTown extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    editor.putString("mos", "moscow");
+                    editor.putString("mos", "1");
                     editor.apply();
                 }
             }
@@ -46,7 +46,7 @@ public class ActivityTown extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    editor.putString("pit", "piter");
+                    editor.putString("pit", "0");
                     editor.apply();
                 }
             }
@@ -56,7 +56,7 @@ public class ActivityTown extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    editor.putString("kas", "kasan");
+                    editor.putString("kas", "2");
                     editor.apply();
                 }
             }

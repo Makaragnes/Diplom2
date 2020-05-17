@@ -48,8 +48,8 @@ public class AdapterForList extends BaseAdapter {
 
         ResorsesForRow resorsesForRow = getResorsessForRow(position);
 
-        view.findViewById(R.id.bellowtext);
-        view.findViewById(R.id.maintext);
+        //view.findViewById(R.id.bellowtext);
+        //view.findViewById(R.id.maintext);
         CheckBox checkBox = view.findViewById(R.id.checkbox);
 
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

@@ -50,6 +50,9 @@ public class Samlpe extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
         final String string = sharedPreferences.getString("responce", "");
+        final String mos = sharedPreferences.getString("mos", "");
+        final String pit = sharedPreferences.getString("pit", "");
+        final String kas = sharedPreferences.getString("kas", "");
 
         frameLayout = findViewById(R.id.FrameRoot);
         listView = findViewById(R.id.listview);
@@ -81,10 +84,21 @@ public class Samlpe extends AppCompatActivity {
                 JSONObject item = array.getJSONObject(i);
                 //Log.d(TAG, item.toString());
                 String id = item.getString("id");
-                //Log.d(TAG, id);
-                String title = item.getString("title"); // Название вуза
-                list.add(title);
-                adapter.notifyDataSetChanged();
+                if(id.equals(mos)) {
+                    String title = item.getString("title"); // Название вуза
+                    list.add(title);
+                    adapter.notifyDataSetChanged();
+                }
+                if(id.equals(pit)) {
+                    String title = item.getString("title"); // Название вуза
+                    list.add(title);
+                    adapter.notifyDataSetChanged();
+                }
+                if(id.equals(kas)) {
+                    String title = item.getString("title"); // Название вуза
+                    list.add(title);
+                    adapter.notifyDataSetChanged();
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -92,8 +106,8 @@ public class Samlpe extends AppCompatActivity {
 
     }
 
-
-
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 }
