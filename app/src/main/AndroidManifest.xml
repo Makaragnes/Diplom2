@@ -23,6 +23,7 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".ActivityCheckBalls"></activity>
         <activity android:name=".ActivityTown"></activity>
+        <activity android:name=".ActivityBalls3"></activity>
     </application>
 
 </manifest>

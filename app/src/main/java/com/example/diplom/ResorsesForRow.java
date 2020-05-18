@@ -2,18 +2,27 @@ package com.example.diplom;
 
 public class ResorsesForRow {
 
-    String institute;
-    boolean checkbox;
-    String predmet1, predmet2, predmet3, predmet4;
-    int balls;
+    String name;
+    int img;
 
-    ResorsesForRow(String institute, boolean checkbox, String predmet1, String predmet2, String predmet3, String predmet4, int balls){
-        institute = institute;
-        checkbox = checkbox;
-        predmet1 = predmet1;
-        predmet2 = predmet2;
-        predmet3 = predmet3;
-        predmet4 = predmet4;
-        balls = balls;
+    ResorsesForRow(String name1, int img1){
+        name=name1;
+        img=img1;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public int getImg(){
+        return this.img = img;
+    }
+
+    public void setImg(int img){
+        this.img = img;
     }
 }

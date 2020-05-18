@@ -39,13 +39,15 @@ public class ActivityCheckBalls extends AppCompatActivity {
 //    int sumballs;
 
     private ListView list;
-    private List<View> editors;
+
     private String[] names = {"Русский язык", "Математика", "Обществознание", "Биология", "Иностранный язык", "История", "Химия", "География", "Информатика", "Литература", "Физика"};
     private int[] images = {R.drawable.icons1, R.drawable.icons2, R.drawable.icons3, R.drawable.icons4, R.drawable.icons5, R.drawable.icons6, R.drawable.icons7, R.drawable.icons8, R.drawable.icons9, R.drawable.icons9, R.drawable.icons10, R.drawable.icons11};
-    private int[] edit = {};
     private Boolean flag=false;  // Флаг указывающий что если хоть одно число больше 100 то нихера перехода не будет
-    private RelativeLayout frameLayout;
-    private LinearLayout linearLayout;
+//    private RelativeLayout frameLayout;
+//    private LinearLayout linearLayout;
+
+    ArrayList<ResorsesForRow> resorsesForRows = new ArrayList<ResorsesForRow>();
+
 
     private Button button;
     @Override
@@ -53,30 +55,38 @@ public class ActivityCheckBalls extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bals2);
 
-        List<EditText> allEds = new ArrayList<EditText>();
-
         button = findViewById(R.id.button);
-        linearLayout = findViewById(R.id.linearLayout);
-        ArrayList<Map<String, Object>> data = new ArrayList<Map<String, Object>>(11);
-        Map<String, Object> map;
-
-        for( int i=0; i<11; i++){
-            map = new HashMap<String, Object>();
-            map.put("name", names[i]);
-            map.put("img", images[i]);
-            //map.put("edit", );
-            //map.put("edit", )
-            data.add(map);
-        }
-
-        String[] from = {"name", "img"};
-        int[] to = {R.id.name, R.id.image_view};
 
         list = findViewById(R.id.listView);
 
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this, data, R.layout.row_for_listview, from, to);
+        for(int i=0; i<11; i++){
+            resorsesForRows.add(new ResorsesForRow(names[i], images[i]));
+            Log.d(TAG, names[i]);
+        }
 
-        list.setAdapter(simpleAdapter);
+        AdapterForList adapterForList = new AdapterForList(this, resorsesForRows);
+        list.setAdapter(adapterForList);
+
+//        ArrayList<Map<String, Object>> data = new ArrayList<Map<String, Object>>(11);
+//        Map<String, Object> map;
+
+//        for( int i=0; i<11; i++){
+//            map = new HashMap<String, Object>();
+//            map.put("name", names[i]);
+//            map.put("img", images[i]);
+//            //map.put("edit", );
+//            //map.put("edit", )
+//            data.add(map);
+//        }
+//
+//        String[] from = {"name", "img"};
+//        int[] to = {R.id.name, R.id.image_view};
+//
+//        list = findViewById(R.id.listView);
+//
+//        SimpleAdapter simpleAdapter = new SimpleAdapter(this, data, R.layout.row_for_listview, from, to);
+//
+//        list.setAdapter(simpleAdapter);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,12 +95,6 @@ public class ActivityCheckBalls extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        String[] items = new String[11];
-
-        for(int i=0; i<11; i++){
-            items[i] = ((EditText) allEds.get(i).findViewById(R.id.edittext)).getText().toString();
-            Log.d(TAG, items[i]);
-        }
 
 
 //        frameLayout = findViewById(R.id.FrameRoot);
@@ -205,7 +209,7 @@ public class ActivityCheckBalls extends AppCompatActivity {
 //
 //
 //        }
-        sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
+//        sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
         //String string = sharedPreferences.getString("responce", "");
 
 //        button = findViewById(R.id.button);

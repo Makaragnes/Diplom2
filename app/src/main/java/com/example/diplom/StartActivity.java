@@ -93,7 +93,7 @@ public class StartActivity extends AppCompatActivity {
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 public void run() {
-                    Intent intent = new Intent(StartActivity.this, ActivityCheckBalls.class);
+                    Intent intent = new Intent(StartActivity.this, ActivityBalls3.class);
                     startActivity(intent);
                     //dialog.dismiss();
                 }
