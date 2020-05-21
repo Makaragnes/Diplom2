@@ -31,6 +31,7 @@ public class Vus extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
         final String responce = sharedPreferences.getString("responce", "");
+        final String sumid = sharedPreferences.getString("sumid", "");
 
         listView = findViewById(R.id.listView);
 
@@ -63,18 +64,25 @@ public class Vus extends AppCompatActivity {
                         String id2 = facultet.getString("id");
 
                         String title2 = facultet.getString("title");
-                        list.add(title2);
-                        adapter.notifyDataSetChanged();
+
+
                         String medium = facultet.getString("medium");
+                        String subs = facultet.getString("subs");
+                        Log.d(TAG, subs + "  subs");
+                        Log.d(TAG, sumid + "  sumid");
 
-                        JSONArray subjects = facultet.optJSONArray("subjects");
+                        if(sumid.equals(subs)) {
+                            list.add(title2);
+                            adapter.notifyDataSetChanged();
+                            JSONArray subjects = facultet.optJSONArray("subjects");
 
-                        for (int k = 0; k < subjects.length(); ++k) {
-                            JSONObject subject = subjects.getJSONObject(k);
-                            String id3 = subject.getString("id");
-                            //Log.d(TAG, id3);
-                            String discipline = subject.getString("discipline");
+                            for (int k = 0; k < subjects.length(); ++k) {
+                                JSONObject subject = subjects.getJSONObject(k);
+                                String id3 = subject.getString("id");
+                                //Log.d(TAG, id3);
+                                String discipline = subject.getString("discipline");
 
+                            }
                         }
                     }
                 }

@@ -60,7 +60,7 @@ public class ActivityCheckBalls extends AppCompatActivity {
         list = findViewById(R.id.listView);
 
         for(int i=0; i<11; i++){
-            resorsesForRows.add(new ResorsesForRow(names[i], images[i]));
+            resorsesForRows.add(new ResorsesForRow(names[i], images[i], "0"));
             Log.d(TAG, names[i]);
         }
 

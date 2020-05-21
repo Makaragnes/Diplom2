@@ -39,6 +39,8 @@ public class ActivityTown extends AppCompatActivity {
                     editor.putString("mos", "1");
                     editor.apply();
                 }
+                else editor.remove("mos");
+                editor.apply();
             }
         });
 
@@ -49,6 +51,8 @@ public class ActivityTown extends AppCompatActivity {
                     editor.putString("pit", "0");
                     editor.apply();
                 }
+                else editor.remove("pit");
+                editor.apply();
             }
         });
 
@@ -59,9 +63,10 @@ public class ActivityTown extends AppCompatActivity {
                     editor.putString("kas", "2");
                     editor.apply();
                 }
+                else editor.remove("kas");
+                editor.apply();
             }
         });
-
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
