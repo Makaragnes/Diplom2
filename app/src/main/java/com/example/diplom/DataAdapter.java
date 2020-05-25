@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,9 +25,8 @@ import static android.media.CamcorderProfile.get;
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
     private static final String TAG = "log";
-    SharedPreferences sharedPreferences;
-    Context context;
     private LayoutInflater inflater;
+    Context context ;
     public static List<ResorsesForRow> resorsesForRowList;        // editModelArrayList
 
 
@@ -72,11 +72,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
             editText = view.findViewById(R.id.edittext);
 
             editText.addTextChangedListener(new TextWatcher() {
-                private int position;
 
-                public void updatePosition(int position) {
-                    this.position = position;
-                }
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -85,14 +81,16 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-//                    resorsesForRowList.get(getAdapterPosition()).setEditTextValue(editText.getText().toString());
-//                    Log.d(TAG, s.toString());
-                    //Log.d(TAG, )
+
+
                 }
 
                 @Override
                 public void afterTextChanged(Editable s) {
-                    resorsesForRowList.get(getAdapterPosition()).setEditTextValue(editText.getText().toString());
+
+                        resorsesForRowList.get(getAdapterPosition()).setEditTextValue(editText.getText().toString());
+
+
 //                    Log.d(TAG, s.toString());
 //                    Log.d(TAG, String.valueOf(get(position)));
 

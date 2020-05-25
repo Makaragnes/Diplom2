@@ -20,10 +20,9 @@
         </activity>
         <activity android:name=".Samlpe"></activity>
         <activity android:name=".Vus"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".ActivityCheckBalls"></activity>
         <activity android:name=".ActivityTown"></activity>
         <activity android:name=".ActivityBalls3"></activity>
+        <activity android:name=".Sample2"></activity>
     </application>
 
 </manifest>

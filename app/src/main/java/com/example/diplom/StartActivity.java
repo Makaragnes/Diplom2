@@ -27,7 +27,9 @@ public class StartActivity extends AppCompatActivity {
     private static final String TAG = "log";
     SharedPreferences sharedPreferences;
     MyTask myTask = new MyTask();
-    private String mJSONURLString = "https://myrik8333.github.io/test.json";
+    private String mJSONURLString = "https://myrik8333.github.io/moscow.json";
+    private String mJSONURLString2 = "https://myrik8333.github.io/piter.json";
+    private String mJSONURLString3 = "https://myrik8333.github.io/kazan.json";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,6 +82,74 @@ public class StartActivity extends AppCompatActivity {
             );
 
             requestQueue.add(jsonObjectRequest);
+
+            RequestQueue requestQueue2 = Volley.newRequestQueue(getApplicationContext());
+
+            JsonObjectRequest jsonObjectRequest2 = new JsonObjectRequest (
+                    Request.Method.GET,
+                    mJSONURLString2,
+                    null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(final JSONObject response) {
+
+                            Log.d(TAG, "sfdfsdf");
+                            try {
+                                final JSONObject object = new JSONObject(response.toString());
+
+                                sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
+                                SharedPreferences.Editor edit = sharedPreferences.edit();
+                                edit.putString("responce2", object.toString());
+                                Log.d(TAG, object.toString());
+                                edit.apply();
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    },
+                    new Response.ErrorListener(){
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                        }
+                    }
+            );
+
+            requestQueue2.add(jsonObjectRequest2);
+
+            RequestQueue requestQueue3 = Volley.newRequestQueue(getApplicationContext());
+
+            JsonObjectRequest jsonObjectRequest3 = new JsonObjectRequest (
+                    Request.Method.GET,
+                    mJSONURLString3,
+                    null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(final JSONObject response) {
+
+                            Log.d(TAG, "sfdfsdf");
+                            try {
+                                final JSONObject object = new JSONObject(response.toString());
+
+                                sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
+                                SharedPreferences.Editor edit = sharedPreferences.edit();
+                                edit.putString("responce3", object.toString());
+                                Log.d(TAG, object.toString());
+                                edit.apply();
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    },
+                    new Response.ErrorListener(){
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                        }
+                    }
+            );
+
+            requestQueue3.add(jsonObjectRequest3);
             return null;
         }
 
@@ -97,7 +167,7 @@ public class StartActivity extends AppCompatActivity {
                     startActivity(intent);
                     //dialog.dismiss();
                 }
-            }, 3000);
+            }, 500);
         }
     }
 }

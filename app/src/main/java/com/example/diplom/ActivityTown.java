@@ -26,6 +26,9 @@ public class ActivityTown extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
         final String string = sharedPreferences.getString("responce", "");
         final SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("mos");
+        editor.remove("pit");
+        editor.remove("kas");
 
         button = findViewById(R.id.button);
         checkBox1 = findViewById(R.id.checkBox1);
@@ -71,7 +74,7 @@ public class ActivityTown extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ActivityTown.this, Samlpe.class);
+                Intent intent = new Intent(ActivityTown.this, Sample2.class);
                 startActivity(intent);
             }
         });

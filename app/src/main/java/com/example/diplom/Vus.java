@@ -29,6 +29,8 @@ public class Vus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actuvity_way);
 
+        ArrayList<String> ides = (ArrayList<String>)getIntent().getSerializableExtra("list");
+
         sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
         final String responce = sharedPreferences.getString("responce", "");
         final String sumid = sharedPreferences.getString("sumid", "");
@@ -43,7 +45,6 @@ public class Vus extends AppCompatActivity {
         Intent intent = getIntent();
         String posihion = intent.getStringExtra("id");
 
-
         try {
             JSONObject object = new JSONObject(responce);
             JSONObject object1 = object.getJSONObject("response");
@@ -55,7 +56,7 @@ public class Vus extends AppCompatActivity {
                 Log.d(TAG, item.toString());
                 String id = item.getString("id");
                 String title = item.getString("title"); // Название вуза
-                if (posihion.equals(id)) {
+                //if (posihion.equals(id)) {
 
                     JSONArray faculties = item.getJSONArray("faculties");
 
@@ -85,7 +86,7 @@ public class Vus extends AppCompatActivity {
                             }
                         }
                     }
-                }
+                //}
             }
         } catch (JSONException e) {
             e.printStackTrace();
